@@ -45,6 +45,9 @@
 
 /* USER CODE BEGIN PV */
 
+extern pulses;
+uint8_t tx_data[4];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -100,6 +103,13 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+
+	  HAL_Delay(1000);
+	  tx_data[0] = (pulses & 0xFF000000) >> 24;
+	  tx_data[1] = (pulses & 0x00FF0000) >> 16;
+	  tx_data[2] = (pulses & 0x0000FF00) >> 8;
+	  tx_data[3] = (pulses & 0x000000FF);
+	  HAL_UART_Transmit(&huart2, &tx_data[0], 4, 100);
 
     /* USER CODE BEGIN 3 */
   }

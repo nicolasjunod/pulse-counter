@@ -43,6 +43,8 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 
+int32_t pulses = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -211,6 +213,7 @@ void EXTI9_5_IRQHandler(void)
   /* USER CODE BEGIN EXTI9_5_IRQn 1 */
 
   HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+  pulses++;
 
   /* USER CODE END EXTI9_5_IRQn 1 */
 }
@@ -227,6 +230,7 @@ void EXTI15_10_IRQHandler(void)
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */
 
   HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+  pulses++;
 
   /* USER CODE END EXTI15_10_IRQn 1 */
 }
