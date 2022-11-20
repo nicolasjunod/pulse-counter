@@ -1,6 +1,4 @@
 import serial
-import binascii
-import time
 
 ser = serial.Serial('COM6', 115200, timeout=1, parity=serial.PARITY_NONE, rtscts=0)
 prev_volume = 0
